@@ -31,6 +31,63 @@ or just add the dependency to requirements.txt
 -e git+ssh://git@github.com/JamalZeynalov/swagger-coverage-py.git#egg=swagger_coverage
 ```
 
+OR
+
+* Download and run command line.
+Download zip archive and unpack it. Don't forget to replace {latest-swagger-coverage-version} to latest version. 
+```
+wget https://github.com/viclovsky/swagger-coverage/releases/download/{latest-swagger-coverage-version}/swagger-coverage-{latest-swagger-coverage-version}.zip
+unzip swagger-coverage-commandline-{latest-swagger-coverage-version}.zip
+```
+
+Here is help of unzip swagger-commandline
+
+```
+./swagger-coverage-commandline --help
+
+  Options:
+  * -s, --spec
+      Path to swagger specification.
+  * -i, --input
+      Path to folder with generated files with coverage.
+    -c, --configuration
+      Path to file with report configuration.
+    --help
+      Print commandline help.
+    -q, --quiet
+      Switch on the quiet mode.
+      Default: false
+    -v, --verbose
+      Switch on the verbose mode.
+      Default: false
+```
+
+To compare result of API tests with current API specification and build report call command line tool after running tests like that:
+
+```
+./swagger-coverage-commandline -s swagger.json -i swagger-coverage-output
+```
+
+Output of the command:
+```
+19:21:21 INFO  OperationSwaggerCoverageCalculator - Empty coverage:
+...
+19:21:21 INFO  OperationSwaggerCoverageCalculator - Partial coverage:
+...
+19:21:21 INFO  OperationSwaggerCoverageCalculator - Full coverage:
+...
+19:21:21 INFO  OperationSwaggerCoverageCalculator - Conditions: 874/2520
+19:21:21 INFO  OperationSwaggerCoverageCalculator - Empty coverage 49.284 %
+19:21:21 INFO  OperationSwaggerCoverageCalculator - Partial coverage 12.034 %
+19:21:21 INFO  OperationSwaggerCoverageCalculator - Full coverage 38.682 %
+19:21:21 INFO  FileSystemResultsWriter - Write html report in file '.../swagger-coverage-report.html'
+```
+Results (swagger-coverage-report.html/swagger-coverage-results.json) will be created after running of swagger-coverage.
+
+## Configuration options
+Swagger-coverage report can be configured by json-file. 
+You can control list of coverage, which be generated and checked for results.
+
 ### 2. Add the session-scoped fixture
 
 ```python
