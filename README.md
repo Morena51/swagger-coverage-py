@@ -19,7 +19,7 @@ All required steps are listed below.
 * java JDK 11+ (with JAVA_HOME environment variable set)
 * Enable Long Paths (Windows only). Check the guide [HERE](https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later)
 
-### 1. Install `swagger-coverage-py` as a project requirement.
+### 1. Downloads `swagger-coverage-py`.
 
 ```shell
 pip install -e git+ssh://git@github.com/JamalZeynalov/swagger-coverage-py.git#egg=swagger_coverage
@@ -149,8 +149,7 @@ response: Response = CoverageListener(
 
 ### 5. Run your tests and open created `swagger-coverage-report-<api_name>.html` report(s) in your browser.
 Important remarks:
-1. Virtual environments are supported. Make sure your virtual environment directory has name `venv`.  
-2. To create report you have to run your test from the project root. Check that workind directory of your runner is not `"<root>/test"`
+1. To create report you have to run your test from the project root. Check that workind directory of your runner is not `"<root>/test"`
 
 # How it works:
 
